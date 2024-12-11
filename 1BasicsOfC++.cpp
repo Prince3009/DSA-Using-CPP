@@ -1,3 +1,5 @@
+//Run files using ctrl+shift+b
+
 #include <bits/stdc++.h>             //all the libraries are included 
 using namespace std;
 int main(){
