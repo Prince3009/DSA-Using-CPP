@@ -260,6 +260,8 @@ int main()
    */
 
 
+
+
   /*Pattern 12:-
   1      1
   12    21
@@ -282,6 +284,9 @@ int main()
   }
   */
 
+
+
+
     /*Pattern 13:-
     1 
     2 3 
@@ -299,4 +304,253 @@ int main()
     }
     */
 
+
+
+
+   /*Pattern 14:-
+    A 
+    A B 
+    A B C 
+    A B C D 
+    A B C D E 
+   */
+   /*
+   for(int i = 0; i < 5; i++){
+    for(char ch = 'A'; ch <= 'A'+i; ch++){
+        cout << ch << " ";
+    }
+    cout << endl;
+   }
+   */
+
+
+
+
+    /*Pattern 15:-
+    A B C D E F 
+    G H I J K 
+    L M N O 
+    P Q R 
+    S T 
+    U 
+    */
+   /*
+   char ch = 'A';
+   for(int i = 0; i <= 5; i++){
+    for(int j = 0; j < 5-i+1; j++){
+        cout << ch++ << " ";
+    }
+    cout << endl;
+   }
+   */
+
+
+
+
+    /*Pattern 16:-
+    A B C D E 
+    A B C D 
+    A B C 
+    A B 
+    A 
+    */
+    /*
+    for(int i = 1; i <= 5; i++){
+     for(char ch = 'A'; ch <= 'A'+5-i; ch++){
+        cout << ch << " ";
+     }
+     cout << endl;
+    }
+    */
+
+
+
+
+   /*Pattern 17:-
+    A 
+    B B 
+    C C C 
+    D D D D 
+    E E E E E 
+   */
+   /*
+   for(int i = 0; i < 5; i++){
+    char ch = 'A' + i;
+    for(int j = 0; j <= i; j++){
+        cout << ch << " ";
+        
+    }
+    cout << endl;
+   }
+   */
+
+
+  /*Pattern 18:-
+    ****A****
+    ***ABA***
+    **ABCBA**
+    *ABCDCBA*
+    ABCDEDCBA
+  */
+  /*
+  for(int i = 1; i <= 5; i++){
+    for(int j = 0; j < 5-i; j++){
+        cout << "*";
+    }
+    for(char ch = 'A'; ch <= 'A'+i-1; ch++){
+        cout << ch ;
+    }
+    for(char ch = 'A'+i-2; ch >='A' ; ch--){
+        cout << ch ;
+    }
+    for(int j = 0; j < 5-i; j++){
+        cout << "*";
+    }
+    cout << endl;
+  }
+  */
+  
+
+
+
+   /*Pattern  19:-
+    E
+    DE
+    CDE
+    BCDE
+    ABCDE
+   */
+    /*
+    for(int i = 0; i < 5; i++){
+        for(char ch ='E'-i; ch <= 'E'; ch++){
+            cout << ch ;
+        }
+        cout << endl;
+    }
+    */
+
+
+
+
+   /*Pattern 20:-
+    **********
+    ****  ****
+    ***    ***
+    **      **
+    *        *
+    *        *
+    **      **
+    ***    ***
+    ****  ****
+    **********
+   */
+  /*
+  for(int i = 0; i < 5; i++){
+    for(int j = 0; j <= 5-i-1; j++){
+        cout << "*";
+    }
+    for(int k = 0; k < i*2; k++){
+        cout << " ";
+    }
+    for(int j = 0; j <= 5-i-1; j++){
+        cout << "*";
+    }
+    cout << endl;
+  }
+  for(int i = 1; i <= 5; i++){
+    for(int j = 1; j <= i; j++){
+        cout << "*";
+    }
+    for(int k = 1; k <= (5*2)-(i*2); k++){
+        cout << " ";
+    }
+    for(int j = 1; j <= i; j++){
+        cout << "*";
+    }
+    cout << endl;
+  }
+  */
+
+
+
+
+    /*Pattern:- 21
+        *        *
+        **      **
+        ***    ***
+        ****  ****
+        **********
+        ****  ****
+        ***    ***
+        **      **
+        *        *
+    */
+    /*
+    for(int i = 1; i <= 5; i++){
+        for(int j = 1; j <= i; j++){
+            cout << "*";
+        }
+        for(int k = 1; k <= (5*2)-(i*2); k++){
+            cout << " ";
+        }
+        for(int j = 1; j <= i; j++){
+            cout << "*";
+        }
+        cout << endl;
+    }
+
+    for(int i = 1; i < 5; i++){
+        for(int j = 1; j < 5-i+1; j++){
+            cout << "*";
+        }
+        for(int k = 0; k < i*2; k++){
+            cout << " ";
+        }
+        for(int j = 1; j < 5-i+1; j++){
+            cout << "*";
+        }
+        cout << endl;
+    }
+    */
+
+
+    /*Pattern 22:-
+        *****
+        *   *
+        *   *
+        *   *
+        *****
+    */
+   /*
+    for(int i = 0; i < 5; i++){
+        for(int j = 0; j < 5; j++){
+            if(i == 0 || j == 0 || i == 5-1 || j == 5-1){
+                cout << "*";
+            }
+            else{
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+   */
+
+
+
+
+   /*Pattern 23:-
+
+    */
+    int n;
+    cin >> n;
+   for(int i = 0; i < 2*n-1; i++){
+    for(int j = 0; j < 2*n-1; j++){
+        int top = i;
+        int left = j;
+        int bottom = 2*n-2-i;
+        int right = 2*n-2-j;
+        cout << (n - min(min(top, bottom),min(left,right)));
+    }
+    cout << endl;
+   }
 }
