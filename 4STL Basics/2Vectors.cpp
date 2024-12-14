@@ -1,5 +1,18 @@
+// A vector is a dynamic array provided by the C++ Standard Template Library (STL).
+// Features of vectors:
+// 1. Vectors can grow or shrink in size dynamically.
+// 2. They allow random access to elements using an index, like arrays.
+// 3. Useful member functions include:
+//    - push_back(value): Adds an element to the end.
+//    - emplace_back(value): Constructs an element in place at the end.
+//    - size(): Returns the number of elements in the vector.
+//    - capacity(): Returns the total memory allocated for the vector.
+// 4. Vectors are memory-efficient and highly flexible compared to static arrays.
+// Example: vector<int> vec; // Creates an empty vector of integers
+
 #include <bits/stdc++.h>
 using namespace std;
+
 int main(){
     vector <int> v ;
     v.push_back(10);       // Adds 10 to the vector
@@ -52,4 +65,24 @@ int main(){
     vec2.erase(vec2.begin());          //deletes the first value
 
     vec2.erase(vec2.begin()+2, vec2.begin()+3);   //deletes the value from index 3 to index 4
+
+    cout << vec2.size() << endl;         //prints the size of the vector
+
+
+    //Insert function
+    vector<int> vec3(2, 100);
+    vec3.insert(vec3.begin(), 50);    // Output: 50 100 100
+    vec3.insert(vec3.begin()+2, 30);  // Output: 50 100 30 100
+    vec3.insert(vec3.begin()+1, 40, 50);  // Output: 50 40 50 100 30 100
+
+    vec3.pop_back();        //pops back the last element
+
+    vec3.clear();           //erases the whole vector
+    
+    cout << vec3.empty();     //returns 1 because the vector is empty
+
+    vec3.swap(vec2);          //swaps the value vec2->vec3 and vec3->vec2
+
+
+    
 }
