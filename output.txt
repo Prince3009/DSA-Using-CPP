@@ -1,5 +1,1 @@
-10
-4
-5 10 20 
-Count of 10: 1 and Count of 60: 0
-5 35 
+Not Armstrong
