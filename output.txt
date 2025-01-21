@@ -1,1 +1,1 @@
-Not Armstrong
+Reversed number: 654
