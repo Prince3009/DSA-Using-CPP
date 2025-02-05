@@ -7,9 +7,9 @@ int secondLargest(int arr[], int n){
             largest = arr[i];
         }
     }
-    int secondLargest = INT_MIN;
+    int secondLargest = -1;   //Here we can also take INT_MIN if the array contains negative values
     for(int i = 0; i < n; i++){
-        if(arr[i]!=largest && arr[i] > secondLargest){
+        if(arr[i] < largest && arr[i] > secondLargest){
             secondLargest = arr[i];
         }
     }
