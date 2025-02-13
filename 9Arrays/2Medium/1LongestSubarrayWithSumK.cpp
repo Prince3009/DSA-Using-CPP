@@ -36,7 +36,10 @@ using namespace std;
 
 
 
-//Optimal approach if the array contain positive as well as negative numbers
+//Optimal approach if the array contains negative numbers also
+int longestSubarray(int arr[], int n, int k){
+    
+}
 
 
 
