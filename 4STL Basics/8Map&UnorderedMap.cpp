@@ -132,5 +132,4 @@ int main() {
     explainMultimap();
     cout << "\n----- Unordered Map -----\n";
     explainUnorderedMap();
-    return 0;
 }
