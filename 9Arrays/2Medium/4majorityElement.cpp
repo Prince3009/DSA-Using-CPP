@@ -8,15 +8,28 @@
 using namespace std;
 
 //Brute-force approach
+// int majorityElement(int arr[], int n){
+//     for(int i = 0; i < n; i++){
+//         int count  = 0;
+//         for(int j = 0; j < n; j++){
+//             if(arr[i] == arr[j]) count++;
+//         }
+//         if(count > n/2) return arr[i];
+//     }
+//     return -1;
+// }
+
+
+//Better approach(By using hashing)
 int majorityElement(int arr[], int n){
+    map<int, int> mpp;
     for(int i = 0; i < n; i++){
-        int count  = 0;
-        for(int j = 0; j < n; j++){
-            if(arr[i] ==arr[j]) count++;
-        }
-        if(count > n/2) return arr[i];
+        mpp[arr[i]]++;
     }
-    return -1;
+    for(auto it : mpp){
+        if(it.second > n/2) return it.first;
+    }
+    return -1;  // Majority element doesn't exist in the array. It's possible in the case when the array has duplicate elements.
 }
 
 int main(){
