@@ -22,9 +22,9 @@ void rearrangeElements(int arr[], int n){
         if(arr[i] > 0) pos.push_back(arr[i]);
         else neg.push_back(arr[i]);
     }
-    for(int i = 0; i < n/2; i++){
-        arr[2*i] = pos[i];
-        arr[2*i+1] = neg[i];
+    for(int i = 0; i < n/2; i++){    //if the array contain odd number of elements, then do (i < pos.size() or neg.size())
+        arr[2*i] = pos[i];           //Putting positive elements at even positions
+        arr[2*i+1] = neg[i];         // putting negative elements at odd positions
     }
 }
 int main() {
