@@ -1,3 +1,14 @@
+/*
+Input: bloomDay = [1,10,3,10,2], m = 3, k = 1
+Output: 3
+Explanation: Let us see what happened in the first three days. x means flower bloomed and _ means flower did not bloom in the garden.
+We need 3 bouquets each should contain 1 flower.
+After day 1: [x, _, _, _, _]   // we can only make one bouquet.
+After day 2: [x, _, _, _, x]   // we can only make two bouquets.
+After day 3: [x, _, x, _, x]   // we can make 3 bouquets. The answer is 3.
+*/
+
+
 #include <iostream>
 #include <vector>
 #include <algorithm>  // For min_element() and max_element()
@@ -5,10 +16,10 @@ using namespace std;
 
 // Function to find the minimum value in the array
 int findMin(vector<int>& arr) {
-    int min = arr[0];  // Initialize min with the first element
+    int min = arr[0];  
     for (int i = 1; i < arr.size(); i++) {
         if (min > arr[i]) {
-            min = arr[i];  // Update min if a smaller element is found
+            min = arr[i]; 
         }
     }
     return min;
@@ -16,10 +27,10 @@ int findMin(vector<int>& arr) {
 
 // Function to find the maximum value in the array
 int findMax(vector<int>& arr) {
-    int max = arr[0];  // Initialize max with the first element
+    int max = arr[0];  
     for (int i = 1; i < arr.size(); i++) {
         if (max < arr[i]) {
-            max = arr[i];  // Update max if a larger element is found
+            max = arr[i]; 
         }
     }
     return max;
@@ -67,38 +78,25 @@ int minDays(vector<int>& arr, int m, int k) {
     return ans;
 }
 
-// Main function with user input
 int main() {
     int n, m, k;
-    
-    // Taking input for bloomDay array size
-    cout << "Enter the number of flowers: ";
+
     cin >> n;
 
     vector<int> bloomDay(n);
     
-    // Taking input for bloomDay array elements
-    cout << "Enter the bloom days of each flower: ";
     for (int i = 0; i < n; i++) {
         cin >> bloomDay[i];
     }
 
-    // Taking input for number of bouquets and flowers per bouquet
-    cout << "Enter the number of bouquets (m): ";
     cin >> m;
-    
-    cout << "Enter the number of flowers required per bouquet (k): ";
+
     cin >> k;
 
-    // Calling function to find minimum days
+
     int result = minDays(bloomDay, m, k);
     
-    // Printing result
-    if (result == -1) {
-        cout << "It is not possible to make " << m << " bouquets with " << k << " flowers each." << endl;
-    } else {
-        cout << "Minimum days required: " << result << endl;
-    }
+    cout << result << endl;
 
     return 0;
 }
