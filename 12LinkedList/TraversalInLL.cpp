@@ -2,7 +2,8 @@
 #include<bits/stdc++.h>
 using namespace std;
  
-struct Node{
+class Node{
+    public:
     int data;       // Value stored in the node
     Node* next;     // Pointer to the next node
 
@@ -26,6 +27,19 @@ Node* arrayTOLL(vector<int> &arr){
         mover->next = temp;            // Link current last node to the new node
         mover = temp;                  // Move 'mover' to the new last node
     }
+    return head;
+}
+
+
+//Length of Linked List
+int lengthOFLL(Node* head){
+    int count = 0;
+    Node* temp = head;
+    while(temp != nullptr){
+        temp = temp->next;
+        count++;
+    }
+    return count;
 }
 
 int main(){
@@ -37,6 +51,20 @@ int main(){
         cin >> arr[i];
     }
 
-    Node * head = arrayTOLL(arr);
-    cout << head->data;
+    Node* head = arrayTOLL(arr);
+    
+    //Prints the head
+    cout << head->data <<endl;
+
+
+    //Traversal
+    Node* temp = head;
+    while(temp != nullptr){
+        cout << temp->data << " ";
+        temp = temp->next;
+    }
+
+    cout << endl;
+
+    cout << lengthOFLL(head);
 }
