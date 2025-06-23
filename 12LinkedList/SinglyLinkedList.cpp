@@ -40,6 +40,42 @@ void insertAtTail(Node* &tail, int data) {
 
 
 
+void insertAtAnyPosition(Node* &head,  Node* &tail, int pos, int d){
+
+    // If inserting at the head (position 0), use the insertAtHead function
+    if(pos == 0){
+        insertAtHead(head, d);
+        return; // Exit after inserting at head
+    }
+
+    // Initialize a temporary pointer to traverse the list
+    Node* temp = head;
+    int count = 0;
+
+    // Traverse the list to reach the (pos - 1)th node
+    while(count < pos - 1){
+        temp = temp->next;  // Move to the next node
+        count++;
+    }
+
+    //If inerting at last
+    if(temp->next == nullptr){
+        insertAtTail(tail, d);
+    }
+
+    // Create a new node with the given data
+    Node* nodeToInsert = new Node(d);
+
+    // Link the new node's next to the next node of temp
+    nodeToInsert->next = temp->next;
+
+    // Link temp's next to the new node, inserting it at the desired position
+    temp->next = nodeToInsert;
+}
+
+
+
+
 void print(Node* &head) {
     Node* temp = head; // Start from the head node
     while(temp != nullptr) {
@@ -72,4 +108,8 @@ int main() {
     insertAtTail(tail, 60);   // List: 12 -> 10 -> 20 -> 60
 
     print(head);              // Output: 12 10 20 60
+    cout << endl;
+
+    insertAtAnyPosition(head, tail, 2, 30);
+    print(head);              //Output: 12 10 30 20 60
 }
