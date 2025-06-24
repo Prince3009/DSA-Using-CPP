@@ -9,7 +9,18 @@ public:
     // Constructor to initialize a node with a given value
     Node(int value) {
         this->data = value;   // Assign value to data
-        next = nullptr;       // Initialize next pointer to null
+        this->next = nullptr;       // Initialize next pointer to null
+    }
+
+    //Destructor
+    ~Node(){
+       int value = this-> data;
+       
+       //memory free
+       if(this-> next != nullptr){
+        delete next;
+        this->next = nullptr;
+       } 
     }
 };
 
@@ -61,6 +72,7 @@ void insertAtAnyPosition(Node* &head,  Node* &tail, int pos, int d){
     //If inerting at last
     if(temp->next == nullptr){
         insertAtTail(tail, d);
+        return;
     }
 
     // Create a new node with the given data
@@ -73,6 +85,33 @@ void insertAtAnyPosition(Node* &head,  Node* &tail, int pos, int d){
     temp->next = nodeToInsert;
 }
 
+
+
+void deleteNode(Node* &head, int pos){
+    if(pos == 0){
+        Node* temp = head;
+        head = head->next;
+        temp -> next = nullptr;
+        delete temp;
+    } 
+
+    else{
+        //deleting any middle node or last node
+         Node* curr = head;
+         Node* prev = nullptr;
+
+        int count = 0;
+        while(count < pos){
+            prev = curr;
+            curr = curr -> next;
+            count++;
+        }
+
+        prev -> next = curr -> next;
+        curr -> next = nullptr;
+        delete curr;
+    }
+}
 
 
 
@@ -112,4 +151,7 @@ int main() {
 
     insertAtAnyPosition(head, tail, 2, 30);
     print(head);              //Output: 12 10 30 20 60
+
+    // deleteNode(head, 2);
+    // print(head);
 }
